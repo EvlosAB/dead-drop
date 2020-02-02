@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="container" style="margin-bottom: 40px; margin-top: 10px;">
+    <h1>Evlos Dead Drop</h1>
+    <p>
+    Här kan du enkelt och säkert skriva in information som kommer krypteras. Du kommer bli given en kod som du kan ge till mottagaren, tillsammans
+    med en länk som du ska skicka till mottagaren.
+    </p>
+    <h2>Skriv in den text som du vill kryptera och säkert skicka till en mottagare<h2>
+    <form action="/encrypt" method="POST">
+      <textarea
+        class="encrypt-input"
+        type="text"
+        name="encrypt-text"
+        id="encrypt-text"
+      ></textarea>
+      <p style="font-size: 12px; margin-bottom: 0;">
+        Genom att klicka på kryptera får du en länk samt en kod, skicka dessa till mottagaren.
+        Din information som du skrivit in är och förblir krypterad, den kan inte ens läsas av oss.
+        När mottagaren hämtar ut information kommer den direkt raderas automatiskt från vår databas.
+      </p>
+      <button type="submit" class="submit-button">Kryptera</button>
+    </form>
+    <h2>Säkerhet</h2>
+    <ul style="font-size: 13px;">
+        <li>&bullet; Din krypterade information raderas automatiskt efter 24-timmar om inte informationen har hämtats ut med en nyckel.</li>
+        <li>&bullet; Din krypterade information raderas automatiskt vid uthämtning av informationen. Den information du skrivit in kan därav endast hämtas ut en enstaka gång.<li>
+        <li>&bullet; Vi lagrar endast tidstämpeln då informationen lades in och den krypterade informationen i vår databas.</li>
+        <li>&bullet; Även om vi skulle vilja, skulle vi inte kunna läsa den information du skrivit in och krypterat, eftersom vi inte har tillgång till nyckeln som du får när du krypterar information.</li>
+    </ul>
+    <br />
+    <ul style="font-size: 13px;">
+        <li>&bullet; Informationen krypteras med AES i CBC-läge med en 128-bitars nyckel</li>
+        <li>&bullet; Autentisering med HMAC som använder SHA256<li>
+    </ul>
+  </div>
+{% endblock %}

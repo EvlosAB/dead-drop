@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Evlos Dead Drop</h1>
+    <p>
+        För att hämta ut informationen från avsändaren, skriv in den nyckel som du fått. OBS: Om du skriver in fel nyckel kommer informationen
+        automatiskt bli raderad och kommer således inte vara tillgänglig efter du begärt skrivit in fel nyckel.
+    </p>
+    <form action="/decrypt/{{ uuid }}" method="POST">
+      <input
+        type="text"
+        class="decryption-key"
+        name="key"
+        id="key"
+        placeholder="Nyckel"
+      />
+      <button class="submit-button" type="submit">
+        Avkryptera
+      </button>
+    </form>
+  </div>
+{% endblock %}

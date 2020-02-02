@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Evlos Dead Drop - Easily drop sensitive information to other recipients</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/flexboxgrid.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/dead-drop.css') }}"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header>
+        <div class="container">
+          <div class="nav-container">
+            <div style="max-height: 55px;">
+              <a href="/">
+                <img src="{{ url_for('static', filename='images/evlos.png') }}" style="height: 55px;" />
+              </a>
+            </div>
+            <div class="flex-grow"></div>
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/">Encrypt &amp; Decrypt</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://web.evlos.se" rel="noreferrer noopener" target="_blank">Gå till Evlos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main>
+        {% block content %}
+        {% endblock %}
+      </main>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <img src="{{ url_for('static', filename='images/evlos.png') }}" height="100" />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <ul class="company-information" style="margin-bottom: 30px;">
+                <li><strong>Evlos AB, 559239-2756</strong></li>
+                <li>Tomtebogatan 5,</li>
+                <li>113 39 Stockholm</li>
+                <li>&nbsp;</li>
+                <li>hello@evlos.se</li>
+                <li>08 - 121 040 84</li>
+              </ul>
+              <small>Data Protection Inquiries: dpo@evlos.se</small>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <small style="font-style: italic; font-size: 12px;">
+                Denna sida sparar inte någon information om dess besökare förutom
+                i form av temporär information i webbserverloggar, detta inkluderar endast IP-adress och vilken webbläsare du använt.
+                Ingen känslig information sparas i klartext.
+                <br />
+                <br />
+                När en besökare
+                använder krypteringsfunktionen på denna webbplats sparas denna information i krypterad
+                form i vår databas tills den är avkrypterad och ges till mottagaren vilket resulterar i att
+                informationen automatiskt blir förstörd och borttagen från databasen.
+              </small>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="{{ url_for('static', filename='js/dead-drop.js') }}"
+    ></script>
+  </body>
+</html>

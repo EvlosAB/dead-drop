@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="container">
+    <h1>Evlos Dead Drop</h1>
+    <p>
+        Din information har blivit krypterad. Skicka länk och nyckel till mottagaren. När mottagaren begär ut information, raderas den sedan automatiskt.
+    </p>
+    <ul>
+      <li>
+        Länk: <a
+          href="{{ url }}"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {{ url }}
+        </a>
+      </li>
+      <li>Nyckel: {{ key }}</li>
+    </ul>
+  </div>
+{% endblock %}
